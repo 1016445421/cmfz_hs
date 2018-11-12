@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.dao.AlbumDao">
+
+  <resultMap id="showAll" type="com.baizhi.entity.Album">
+        <id property="id" column="i"></id>
+        <result property="title" column="t"></result>
+        <result property="publishDate" column="p"></result>
+        <result property="count" column="c"></result>
+        <result property="covering" column="v"></result>
+        <result property="star" column="s"></result>
+        <result property="author" column="a"></result>
+        <result property="broabcast" column="b"></result>
+        <result property="brief" column="f"></result>
+
+        <collection property="children" ofType="com.baizhi.entity.Chapter">
+            <id property="id" column="d"></id>
+            <result property="title" column="e"></result>
+            <result property="sizes" column="z"></result>
+            <result property="duration" column="u"></result>
+            <result property="downPath" column="pp"></result>
+            <result property="upLoadTime" column="h"></result>
+        </collection>
+    </resultMap>
+
+    <select id="queryAll" resultMap="showAll">
+        select a1.id i,a1.title t,a1.publishDate p,a1.count c,a1.covering v,a1.star s,a1.author a,a1.broabcast b,a1.brief f,
+             c1.id d,c1.title e,c1.sizes z,c1.duration u,c1.downPath pp,c1.uploadTime h,c1.album_id aid
+            from album a1 left  join chapter c1
+            on a1.id = c1.album_id
+    </select>
+
+    <select id="queryone" parameterType="com.baizhi.entity.Album" resultType="com.baizhi.entity.Album">
+      SELECT id,title,publishDate,count,covering,star,author,broabcast,brief FROM album
+      where id=#{id}
+    </select>
+
+    <insert id="insert" parameterType="com.baizhi.entity.Album">
+         insert into album(id,title,publishDate,count,covering,star,author,broabcast,brief)
+        values (#{id},#{title},#{publishDate},#{count},#{covering},#{star},#{author},#{broabcast},#{brief})
+     </insert>
+
+</mapper>

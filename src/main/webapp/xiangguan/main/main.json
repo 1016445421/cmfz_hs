@@ -1,0 +1,20 @@
+
+[
+  {"id":"21","name":"单车管理","iconCls":"icon-man","href":"",
+    "children":[
+      {"id":"211","name":"小蓝车管理","iconCls":"icon-filter","href":"/back/dept/datagrid_js1.jsp"},
+      {"id":"212","name":"小黄车管理","iconCls":"icon-help","href":"/back/dept/datagrid_js1.jsp"},
+      {"id":"213","name":"数据统计","iconCls":"icon-search","href":"/back/dept/datagrid_js1.jsp"}
+    ]
+  },
+  {"id":"22","name":"用户管理","iconCls":"icon-remove","href":"",
+    "children":[
+      {"id":"211","name":"用户查询","iconCls":"icon-filter","href":"/back/dept/datagrid_js1.jsp"},
+      {"id":"212","name":"用户录入","iconCls":"icon-help","href":"/back/dept/datagrid_js1.jsp"},
+      {"id":"213","name":"用户添加","iconCls":"icon-search","href":"/back/dept/datagrid_js1.jsp"}
+    ]
+  },
+  {"id":"23","name":"学生管理","iconCls":"icon-add","href":"",
+    "children":[]
+  }
+]
